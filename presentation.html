@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Fire Guardian V2 Presentation</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: #111318;
+    color: #f9fafb;
+    font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "SF Pro Display", sans-serif;
+  }
+  .stage {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 44px 44px 64px;
+  }
+  .frame-wrap {
+    width: min(calc(100vw - 88px), calc((100vh - 108px) * 16 / 9));
+    aspect-ratio: 16 / 9;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, .38);
+  }
+  iframe {
+    width: 1920px;
+    height: 1080px;
+    border: 0;
+    transform-origin: 0 0;
+    pointer-events: none;
+  }
+  .controls {
+    position: fixed;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 999px;
+    background: rgba(20, 23, 30, .82);
+    backdrop-filter: blur(12px);
+  }
+  button {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .1);
+    color: #fff;
+    font-size: 17px;
+    line-height: 30px;
+    cursor: pointer;
+  }
+  button:hover { background: rgba(255, 255, 255, .18); }
+  .counter {
+    min-width: 62px;
+    text-align: center;
+    color: #d1d5db;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .02em;
+  }
+  .title {
+    position: fixed;
+    left: 18px;
+    top: 14px;
+    max-width: calc(100vw - 36px);
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: 650;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .progress {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, .1);
+  }
+  .bar {
+    height: 100%;
+    width: 0;
+    background: #3182f6;
+    transition: width .2s ease;
+  }
+  @media (max-width: 760px) {
+    .stage { padding: 38px 12px 64px; }
+    .frame-wrap { width: calc(100vw - 24px); }
+  }
+</style>
+</head>
+<body>
+<div class="title" id="title">Smart Fire Guardian V2</div>
+<div class="stage">
+  <div class="frame-wrap" id="frameWrap">
+    <iframe id="slideFrame" title="presentation slide"></iframe>
+  </div>
+</div>
+<div class="controls" aria-label="slide controls">
+  <button id="prev" type="button" aria-label="previous slide">&lt;</button>
+  <div class="counter" id="counter">1 / 13</div>
+  <button id="next" type="button" aria-label="next slide">&gt;</button>
+  <button id="fullscreen" type="button" aria-label="fullscreen">[]</button>
+</div>
+<div class="progress"><div class="bar" id="bar"></div></div>
+
+<script>
+  const slides = [
+    "cover.html",
+    "project-overview.html",
+    "background.html",
+    "key-features.html",
+    "hw-architecture.html",
+    "sw-architecture.html",
+    "state-ui.html",
+    "team-roles.html",
+    "schedule.html",
+    "risk-management.html",
+    "demo-scenario.html",
+    "expected-impact.html",
+    "conclusion.html"
+  ];
+
+  const frame = document.getElementById("slideFrame");
+  const frameWrap = document.getElementById("frameWrap");
+  const counter = document.getElementById("counter");
+  const title = document.getElementById("title");
+  const bar = document.getElementById("bar");
+  let current = Number(new URLSearchParams(location.search).get("slide")) || 1;
+  current = Math.min(Math.max(current, 1), slides.length) - 1;
+
+  function resizeFrame() {
+    const scale = frameWrap.clientWidth / 1920;
+    frame.style.transform = `scale(${scale})`;
+  }
+
+  function showSlide(index) {
+    current = Math.min(Math.max(index, 0), slides.length - 1);
+    frame.src = `slides/${slides[current]}`;
+    counter.textContent = `${current + 1} / ${slides.length}`;
+    title.textContent = `${String(current + 1).padStart(2, "0")} - ${slides[current]}`;
+    bar.style.width = `${((current + 1) / slides.length) * 100}%`;
+    history.replaceState(null, "", `?slide=${current + 1}`);
+  }
+
+  function nextSlide() { showSlide(current + 1); }
+  function prevSlide() { showSlide(current - 1); }
+
+  document.getElementById("next").addEventListener("click", nextSlide);
+  document.getElementById("prev").addEventListener("click", prevSlide);
+  document.getElementById("fullscreen").addEventListener("click", () => {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (["ArrowRight", "PageDown", " "].includes(event.key)) nextSlide();
+    if (["ArrowLeft", "PageUp", "Backspace"].includes(event.key)) prevSlide();
+    if (event.key.toLowerCase() === "f") document.getElementById("fullscreen").click();
+    if (event.key === "Home") showSlide(0);
+    if (event.key === "End") showSlide(slides.length - 1);
+  });
+
+  window.addEventListener("resize", resizeFrame);
+  resizeFrame();
+  showSlide(current);
+</script>
+</body>
+</html>

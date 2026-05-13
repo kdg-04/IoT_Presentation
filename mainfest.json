@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "format": "html",
+  "metadata": {
+    "title": "Smart Fire Guardian V2",
+    "description": "NFC 보안 인증 기반의 지능형 하이브리드 소방 제어 시스템 — 연암공과대학교 스마트소프트웨어학과 IoT 프로젝트 (2조)",
+    "author": "연암공과대학교 스마트소프트웨어학과 2조"
+  },
+  "canvas": {
+    "width": 1920,
+    "height": 1080
+  },
+  "playlist": [
+    "cover.html",
+    "project-overview.html",
+    "background.html",
+    "key-features.html",
+    "hw-architecture.html",
+    "sw-architecture.html",
+    "state-ui.html",
+    "team-roles.html",
+    "schedule.html",
+    "risk-management.html",
+    "demo-scenario.html",
+    "expected-impact.html",
+    "conclusion.html"
+  ]
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light" style=""><head>
+
+<title>SW 구조도</title>
+
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+  body{margin:0;padding:0;overflow:hidden;font-family:'Pretendard','SF Pro Display',-apple-system,sans-serif;background:#fff;color:#191F28}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes dash{to{stroke-dashoffset:-20}}
+  .fu-1{animation:fadeUp .7s .05s both}.fu-2{animation:fadeUp .7s .15s both}.fu-3{animation:fadeUp .7s .25s both}
+  .fu-4{animation:fadeUp .7s .35s both}.fu-5{animation:fadeUp .7s .45s both}.fu-6{animation:fadeUp .7s .55s both}
+  .fu-7{animation:fadeUp .7s .65s both}
+  .flow{stroke-dasharray:6 6;animation:dash 1.4s linear infinite}
+</style>
+</head>
+<body style="user-select: none;">
+<div data-screen-label="06 SW Architecture" class="slide-container" style="position:relative;width:1920px;height:1080px;overflow:hidden;background:#F9FAFB">
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:120px;top:80px;width:500px;height:24px;font-size:14px;font-weight:600;letter-spacing:0.18em;color:#3182F6;z-index:10" id="fabric-obj-0-1778574206730">05 · SOFTWARE ARCHITECTURE</div>
+
+  <div data-object="true" data-object-type="textbox" class="fu-1" style="position: absolute; left: 120px; top: 146px; width: 1400px; height: 80px; font-size: 64px; font-weight: 800; letter-spacing: -0.03em; color: rgb(25, 31, 40); line-height: 1.1; z-index: 10; transform: none !important;" id="fabric-obj-1-1778574206730">SW 기능 구조도</div>
+  <div data-object="true" data-object-type="textbox" class="fu-2" style="position: absolute; left: 120px; top: 236px; width: 1400px; height: 40px; font-size: 22px; font-weight: 500; color: rgb(78, 89, 104); letter-spacing: -0.01em; z-index: 10; transform: none !important;" id="fabric-obj-2-1778574206730">millis() 기반 비차단 메인 루프 + 우선순위 상태 머신</div>
+
+  
+  <div data-object="true" data-object-type="shape" class="fu-3" style="position: absolute; left: 120px; top: 316px; width: 660px; height: 670px; border-radius: 28px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 3px, rgba(17, 24, 39, 0.04) 0px 8px 24px; z-index: 5; transform: none !important;" id="fabric-obj-3-1778574206730"></div>
+
+  <div data-object="true" data-object-type="textbox" class="fu-3" style="position: absolute; left: 160px; top: 356px; width: 200px; height: 24px; font-size: 13px; font-weight: 700; letter-spacing: 0.18em; color: rgb(49, 130, 246); z-index: 10; transform: none !important;" id="fabric-obj-4-1778574206731">MAIN LOOP</div>
+  <div data-object="true" data-object-type="textbox" class="fu-3" style="position: absolute; left: 160px; top: 386px; width: 580px; height: 52px; font-size: 36px; font-weight: 800; color: rgb(25, 31, 40); letter-spacing: -0.025em; z-index: 10; transform: none !important;" id="fabric-obj-5-1778574206731">loop() 비차단 실행</div>
+
+  
+  <div data-object="true" data-object-type="shape" class="fu-4" style="position: absolute; left: 160px; top: 466px; width: 580px; height: 100px; border-radius: 18px; background: rgb(242, 248, 255); border: 1px solid rgb(214, 230, 251); z-index: 6; transform: none !important;" id="fabric-obj-6-1778574206731"></div>
+  <div data-object="true" data-object-type="shape" class="fu-4" style="position: absolute; left: 184px; top: 490px; width: 52px; height: 52px; border-radius: 14px; background: rgb(49, 130, 246); z-index: 7; transform: none !important;" id="fabric-obj-7-1778574206731"></div>
+  <div data-object="true" data-object-type="textbox" class="fu-4" style="position: absolute; left: 184px; top: 490px; width: 52px; height: 52px; line-height: 52px; text-align: center; font-size: 20px; font-weight: 800; color: rgb(255, 255, 255); z-index: 11; transform: none !important;" id="fabric-obj-8-1778574206731">1</div>
+  <div data-object="true" data-object-type="textbox" class="fu-4" style="position: absolute; left: 256px; top: 488px; width: 460px; height: 30px; font-size: 22px; font-weight: 700; color: rgb(25, 31, 40); letter-spacing: -0.01em; z-index: 10; transform: none !important;" id="fabric-obj-9-1778574206731">updateSensors()</div>
+  <div data-object="true" data-object-type="textbox" class="fu-4" style="position: absolute; left: 256px; top: 522px; width: 460px; height: 24px; font-size: 14px; font-weight: 500; color: rgb(78, 89, 104); z-index: 10; transform: none !important;" id="fabric-obj-10-1778574206731">NFC · Flame · Water · Joystick 입력 수집</div>
+
+  <div data-object="true" data-object-type="shape" class="fu-4" style="position: absolute; left: 160px; top: 586px; width: 580px; height: 100px; border-radius: 18px; background: rgb(242, 248, 255); border: 1px solid rgb(214, 230, 251); z-index: 6; transform: none !important;" id="fabric-obj-11-1778574206731"></div>
+  <div data-object="true" data-object-type="shape" class="fu-4" style="position: absolute; left: 184px; top: 610px; width: 52px; height: 52px; border-radius: 14px; background: rgb(49, 130, 246); z-index: 7; transform: none !important;" id="fabric-obj-12-1778574206731"></div>
+  <div data-object="true" data-object-type="textbox" class="fu-4" style="position: absolute; left: 184px; top: 610px; width: 52px; height: 52px; line-height: 52px; text-align: center; font-size: 20px; font-weight: 800; color: rgb(255, 255, 255); z-index: 11; transform: none !important;" id="fabric-obj-13-1778574206731">2</div>
+  <div data-object="true" data-object-type="textbox" class="fu-4" style="position: absolute; left: 256px; top: 608px; width: 460px; height: 30px; font-size: 22px; font-weight: 700; color: rgb(25, 31, 40); letter-spacing: -0.01em; z-index: 10; transform: none !important;" id="fabric-obj-14-1778574206731">updateStateMachine()</div>
+  <div data-object="true" data-object-type="textbox" class="fu-4" style="position: absolute; left: 256px; top: 642px; width: 460px; height: 24px; font-size: 14px; font-weight: 500; color: rgb(78, 89, 104); z-index: 10; transform: none !important;" id="fabric-obj-15-1778574206731">우선순위 기반 상태 전이 판정</div>
+
+  <div data-object="true" data-object-type="shape" class="fu-5" style="position: absolute; left: 160px; top: 706px; width: 580px; height: 100px; border-radius: 18px; background: rgb(242, 248, 255); border: 1px solid rgb(214, 230, 251); z-index: 6; transform: none !important;" id="fabric-obj-16-1778574206731"></div>
+  <div data-object="true" data-object-type="shape" class="fu-5" style="position: absolute; left: 184px; top: 730px; width: 52px; height: 52px; border-radius: 14px; background: rgb(49, 130, 246); z-index: 7; transform: none !important;" id="fabric-obj-17-1778574206731"></div>
+  <div data-object="true" data-object-type="textbox" class="fu-5" style="position: absolute; left: 184px; top: 730px; width: 52px; height: 52px; line-height: 52px; text-align: center; font-size: 20px; font-weight: 800; color: rgb(255, 255, 255); z-index: 11; transform: none !important;" id="fabric-obj-18-1778574206732">3</div>
+  <div data-object="true" data-object-type="textbox" class="fu-5" style="position: absolute; left: 256px; top: 728px; width: 460px; height: 30px; font-size: 22px; font-weight: 700; color: rgb(25, 31, 40); letter-spacing: -0.01em; z-index: 10; transform: none !important;" id="fabric-obj-19-1778574206732">updateActuators()</div>
+  <div data-object="true" data-object-type="textbox" class="fu-5" style="position: absolute; left: 256px; top: 762px; width: 460px; height: 24px; font-size: 14px; font-weight: 500; color: rgb(78, 89, 104); z-index: 10; transform: none !important;" id="fabric-obj-20-1778574206732">펌프·서보·LED·부저 출력 갱신</div>
+
+  <div data-object="true" data-object-type="shape" class="fu-5" style="position: absolute; left: 160px; top: 826px; width: 580px; height: 100px; border-radius: 18px; background: rgb(242, 248, 255); border: 1px solid rgb(214, 230, 251); z-index: 6; transform: none !important;" id="fabric-obj-21-1778574206732"></div>
+  <div data-object="true" data-object-type="shape" class="fu-5" style="position: absolute; left: 184px; top: 850px; width: 52px; height: 52px; border-radius: 14px; background: rgb(49, 130, 246); z-index: 7; transform: none !important;" id="fabric-obj-22-1778574206732"></div>
+  <div data-object="true" data-object-type="textbox" class="fu-5" style="position: absolute; left: 184px; top: 850px; width: 52px; height: 52px; line-height: 52px; text-align: center; font-size: 20px; font-weight: 800; color: rgb(255, 255, 255); z-index: 11; transform: none !important;" id="fabric-obj-23-1778574206732">4</div>
+  <div data-object="true" data-object-type="textbox" class="fu-5" style="position: absolute; left: 256px; top: 848px; width: 460px; height: 30px; font-size: 22px; font-weight: 700; color: rgb(25, 31, 40); letter-spacing: -0.01em; z-index: 10; transform: none !important;" id="fabric-obj-24-1778574206732">updateDisplay()</div>
+  <div data-object="true" data-object-type="textbox" class="fu-5" style="position: absolute; left: 256px; top: 882px; width: 460px; height: 24px; font-size: 14px; font-weight: 500; color: rgb(78, 89, 104); z-index: 10; transform: none !important;" id="fabric-obj-25-1778574206732">LCD · 음성 안내 갱신</div>
+
+  
+  <div data-object="true" data-object-type="shape" class="fu-3" style="position: absolute; left: 800px; top: 316px; width: 1000px; height: 670px; border-radius: 28px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 3px, rgba(17, 24, 39, 0.04) 0px 8px 24px; z-index: 5; transform: none !important;" id="fabric-obj-26-1778574206732"></div>
+
+  <div data-object="true" data-object-type="textbox" class="fu-3" style="position: absolute; left: 840px; top: 356px; width: 300px; height: 24px; font-size: 13px; font-weight: 700; letter-spacing: 0.18em; color: rgb(49, 130, 246); z-index: 10; transform: none !important;" id="fabric-obj-27-1778574206732">STATE MACHINE</div>
+  <div data-object="true" data-object-type="textbox" class="fu-3" style="position: absolute; left: 840px; top: 386px; width: 920px; height: 52px; font-size: 36px; font-weight: 800; color: rgb(25, 31, 40); letter-spacing: -0.025em; z-index: 10; transform: none !important;" id="fabric-obj-28-1778574206732">우선순위 기반 5-State 흐름</div>
+
+  
+  <div data-object="true" data-object-type="shape" class="fu-6" style="position:absolute;left:800px;top:430px;width:1000px;height:540px;z-index:6">
+    <svg viewBox="0 0 1000 540" width="1000" height="540" style="display:block">
+      
+      <line class="flow" x1="200" y1="96" x2="375" y2="96" stroke="#3182F6" stroke-width="2.5" fill="none"></line>
+      
+      <line class="flow" x1="535" y1="96" x2="725" y2="96" stroke="#9B59B6" stroke-width="2.5" fill="none"></line>
+      
+      <line x1="465" y1="240" x2="465" y2="290" stroke="#E82018" stroke-width="2.5" fill="none" stroke-dasharray="6 6"></line>
+      
+      <line x1="465" y1="400" x2="465" y2="450" stroke="#F5B000" stroke-width="2.5" fill="none" stroke-dasharray="6 6"></line>
+      
+      <polygon points="375,90 385,96 375,102" fill="#3182F6"></polygon>
+      <polygon points="725,90 735,96 725,102" fill="#9B59B6"></polygon>
+      <polygon points="459,290 465,300 471,290" fill="#E82018"></polygon>
+      <polygon points="459,450 465,460 471,450" fill="#F5B000"></polygon>
+    </svg>
+  </div>
+
+  
+  <div data-object="true" data-object-type="shape" class="fu-6" style="position: absolute; left: 840px; top: 476px; width: 160px; height: 100px; border-radius: 18px; background: rgb(242, 248, 255); border: 1.5px solid rgb(49, 130, 246); z-index: 7; transform: none !important;" id="fabric-obj-29-1778574206732"></div>
+  <div data-object="true" data-object-type="textbox" class="fu-6" style="position: absolute; left: 840px; top: 488px; width: 160px; height: 24px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: rgb(49, 130, 246); z-index: 11; transform: none !important;" id="fabric-obj-30-1778574206732">STATE 01</div>
+  <div data-object="true" data-object-type="textbox" class="fu-6" style="position: absolute; left: 840px; top: 516px; width: 160px; height: 32px; text-align: center; font-size: 22px; font-weight: 800; color: rgb(25, 31, 40); z-index: 11; transform: none !important;" id="fabric-obj-31-1778574206732">LOCKED</div>
+  <div data-object="true" data-object-type="textbox" class="fu-6" style="position: absolute; left: 840px; top: 546px; width: 160px; height: 24px; text-align: center; font-size: 12px; font-weight: 500; color: rgb(139, 149, 161); z-index: 11; transform: none !important;" id="fabric-obj-32-1778574206732">대기 / 보안</div>
+
+  <div data-object="true" data-object-type="shape" class="fu-6" style="position: absolute; left: 1175px; top: 476px; width: 160px; height: 100px; border-radius: 18px; background: rgb(234, 251, 242); border: 1.5px solid rgb(0, 176, 118); z-index: 7; transform: none !important;" id="fabric-obj-33-1778574206733"></div>
+  <div data-object="true" data-object-type="textbox" class="fu-6" style="position: absolute; left: 1175px; top: 488px; width: 160px; height: 24px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: rgb(0, 176, 118); z-index: 11; transform: none !important;" id="fabric-obj-34-1778574206733">STATE 02</div>
+  <div data-object="true" data-object-type="textbox" class="fu-6" style="position: absolute; left: 1175px; top: 516px; width: 160px; height: 32px; text-align: center; font-size: 22px; font-weight: 800; color: rgb(25, 31, 40); z-index: 11; transform: none !important;" id="fabric-obj-35-1778574206733">IDLE</div>
+  <div data-object="true" data-object-type="textbox" class="fu-6" style="position: absolute; left: 1175px; top: 546px; width: 160px; height: 24px; text-align: center; font-size: 12px; font-weight: 500; color: rgb(139, 149, 161); z-index: 11; transform: none !important;" id="fabric-obj-36-1778574206733">인증 완료</div>
+
+  <div data-object="true" data-object-type="shape" class="fu-6" style="position: absolute; left: 1525px; top: 476px; width: 160px; height: 100px; border-radius: 18px; background: rgb(243, 240, 250); border: 1.5px solid rgb(155, 89, 182); z-index: 7; transform: none !important;" id="fabric-obj-37-1778574206733"></div>
+  <div data-object="true" data-object-type="textbox" class="fu-6" style="position: absolute; left: 1525px; top: 488px; width: 160px; height: 24px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: rgb(155, 89, 182); z-index: 11; transform: none !important;" id="fabric-obj-38-1778574206733">STATE 03</div>
+  <div data-object="true" data-object-type="textbox" class="fu-6" style="position: absolute; left: 1525px; top: 516px; width: 160px; height: 32px; text-align: center; font-size: 22px; font-weight: 800; color: rgb(25, 31, 40); z-index: 11; transform: none !important;" id="fabric-obj-39-1778574206733">MANUAL</div>
+  <div data-object="true" data-object-type="textbox" class="fu-6" style="position: absolute; left: 1525px; top: 546px; width: 160px; height: 24px; text-align: center; font-size: 12px; font-weight: 500; color: rgb(139, 149, 161); z-index: 11; transform: none !important;" id="fabric-obj-40-1778574206733">수동 제어</div>
+
+  
+  <div data-object="true" data-object-type="shape" class="fu-7" style="position: absolute; left: 1100px; top: 636px; width: 400px; height: 100px; border-radius: 18px; background: rgb(255, 245, 244); border: 1.5px solid rgb(232, 32, 24); z-index: 7; transform: none !important;" id="fabric-obj-41-1778574206733"></div>
+  <div data-object="true" data-object-type="textbox" class="fu-7" style="position: absolute; left: 1100px; top: 648px; width: 400px; height: 24px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: rgb(232, 32, 24); z-index: 11; transform: none !important;" id="fabric-obj-42-1778574206733">PRIORITY HIGH · 모든 상태에서 진입</div>
+  <div data-object="true" data-object-type="textbox" class="fu-7" style="position: absolute; left: 1100px; top: 676px; width: 400px; height: 32px; text-align: center; font-size: 24px; font-weight: 800; color: rgb(25, 31, 40); z-index: 11; transform: none !important;" id="fabric-obj-43-1778574206733">AUTO_FIRE</div>
+  <div data-object="true" data-object-type="textbox" class="fu-7" style="position: absolute; left: 1100px; top: 708px; width: 400px; height: 24px; text-align: center; font-size: 13px; font-weight: 500; color: rgb(139, 149, 161); z-index: 11; transform: none !important;" id="fabric-obj-44-1778574206733">화재 감지 시 즉시 자동 분사</div>
+
+  
+  <div data-object="true" data-object-type="shape" class="fu-7" style="position: absolute; left: 1100px; top: 796px; width: 400px; height: 100px; border-radius: 18px; background: rgb(255, 252, 236); border: 1.5px solid rgb(245, 176, 0); z-index: 7; transform: none !important;" id="fabric-obj-45-1778574206733"></div>
+  <div data-object="true" data-object-type="textbox" class="fu-7" style="position: absolute; left: 1100px; top: 808px; width: 400px; height: 24px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: rgb(197, 138, 0); z-index: 11; transform: none !important;" id="fabric-obj-46-1778574206733">PRIORITY HIGHEST · 최우선 차단</div>
+  <div data-object="true" data-object-type="textbox" class="fu-7" style="position: absolute; left: 1100px; top: 836px; width: 400px; height: 32px; text-align: center; font-size: 24px; font-weight: 800; color: rgb(25, 31, 40); z-index: 11; transform: none !important;" id="fabric-obj-47-1778574206733">LOW_WATER</div>
+  <div data-object="true" data-object-type="textbox" class="fu-7" style="position: absolute; left: 1100px; top: 868px; width: 400px; height: 24px; text-align: center; font-size: 13px; font-weight: 500; color: rgb(139, 149, 161); z-index: 11; transform: none !important;" id="fabric-obj-48-1778574206733">펌프 즉시 정지 · 시스템 보호</div>
+
+  
+  <div data-object="true" data-object-type="shape" class="fu-7" style="position: absolute; left: 840px; top: 916px; width: 840px; height: 50px; border-radius: 14px; background: rgb(25, 31, 40); z-index: 7; transform: none !important;" id="fabric-obj-49-1778574206734"></div>
+  <div data-object="true" data-object-type="textbox" class="fu-7" style="position: absolute; left: 840px; top: 916px; width: 840px; height: 50px; line-height: 50px; text-align: center; font-size: 16px; font-weight: 600; color: rgb(255, 255, 255); letter-spacing: 0.02em; z-index: 11; transform: none !important;" id="fabric-obj-50-1778574206734"><span style="color:#FFE769">millis()</span> 기반 비차단 구조 · <span style="color:#FF8B6E">delay()</span> 절대 미사용</div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:120px;top:1010px;width:600px;height:24px;font-size:13px;font-weight:500;letter-spacing:0.14em;color:#8B95A1;z-index:10" id="fabric-obj-51-1778574206734">SMART FIRE GUARDIAN V2</div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:1700px;top:1010px;width:100px;height:24px;font-size:13px;font-weight:600;letter-spacing:0.14em;color:#8B95A1;text-align:right;z-index:10" id="fabric-obj-52-1778574206734">06 / 13</div>
+
+</div>
+
+
+</body></html>

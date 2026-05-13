@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HW 시스템 구성도</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Pretendard','SF Pro Display',sans-serif;
+  background:#F4F6F8;
+  color:#191F28;
+}
+
+.slide{
+  width:1920px;
+  height:1080px;
+  margin:auto;
+  background:#F9FAFB;
+  position:relative;
+  overflow:hidden;
+  padding:80px 120px;
+}
+
+.top-label{
+  font-size:14px;
+  letter-spacing:0.2em;
+  font-weight:700;
+  color:#3182F6;
+  margin-bottom:48px;
+}
+
+.title{
+  font-size:64px;
+  font-weight:800;
+  letter-spacing:-0.04em;
+  margin-bottom:20px;
+}
+
+.subtitle{
+  font-size:24px;
+  color:#4E5968;
+  margin-bottom:50px;
+}
+
+.architecture-box{
+  width:100%;
+  height:700px;
+  background:white;
+  border-radius:32px;
+  position:relative;
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.04),
+    0 8px 24px rgba(17,24,39,0.04);
+
+  display:grid;
+  grid-template-columns:360px 1fr 360px;
+  align-items:center;
+  padding:70px;
+}
+
+.section-label{
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:0.22em;
+  margin-bottom:28px;
+}
+
+.input-label{ color:#3182F6; }
+.output-label{ color:#00B076; }
+.center-label{ color:#191F28; text-align:center; }
+
+.column{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+  z-index:2;
+}
+
+.center-column{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.card{
+  width:280px;
+  height:84px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  padding:20px;
+  gap:16px;
+  border:1px solid transparent;
+}
+
+.icon-box{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:18px;
+  font-weight:700;
+  flex-shrink:0;
+}
+
+.card-title{
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.card-desc{
+  font-size:13px;
+  color:#8B95A1;
+}
+
+.blue-card{
+  background:#F2F8FF;
+  border-color:#D6E6FB;
+}
+
+.red-card{
+  background:#FFF5F4;
+  border-color:#FFE0DD;
+}
+
+.purple-card{
+  background:#F3F0FA;
+  border-color:#E1D8F2;
+}
+
+.green-card{
+  background:#EAFBF2;
+  border-color:#CFEFDC;
+}
+
+.yellow-card{
+  background:#FFF8E1;
+  border-color:#F8E5B0;
+}
+
+.gray-card{
+  background:#F2F4F6;
+  border-color:#E5E8EB;
+}
+
+.blue-bg{ background:#3182F6; }
+.red-bg{ background:#E82018; }
+.green-bg{ background:#00B076; }
+.yellow-bg{ background:#F5B000; }
+.purple-bg{ background:#9B59B6; }
+.gray-bg{ background:#4E5968; }
+
+.controller{
+  width:430px;
+  height:220px;
+  border-radius:28px;
+  background:linear-gradient(135deg,#191F28 0%,#2C3540 100%);
+  box-shadow:0 12px 32px rgba(17,24,39,0.20);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.controller-inner{
+  width:374px;
+  height:162px;
+  border-radius:18px;
+  border:1.5px dashed rgba(255,255,255,0.16);
+  padding:26px 24px;
+}
+
+.controller-label{
+  color:#3182F6;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:0.18em;
+  margin-bottom:14px;
+}
+
+.controller-title{
+  color:white;
+  font-size:34px;
+  font-weight:800;
+  line-height:1.08;
+  letter-spacing:-0.03em;
+  margin-bottom:10px;
+  white-space:nowrap;
+}
+
+.controller-desc{
+  color:rgba(255,255,255,0.7);
+  font-size:14px;
+  line-height:1.35;
+}
+
+.power-box{
+  width:340px;
+  height:130px;
+  border-radius:22px;
+  background:#FFFCEC;
+  border:1px solid #F8E5B0;
+  margin-top:40px;
+  padding:24px;
+}
+
+.power-top{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:18px;
+}
+
+.power-label{
+  color:#C58A00;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:0.18em;
+}
+
+.power-desc{
+  line-height:1.6;
+  font-size:15px;
+  font-weight:600;
+}
+
+svg.lines{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:1;
+}
+
+.flow{
+  stroke-dasharray:8 8;
+  animation:dash 1.2s linear infinite;
+}
+
+@keyframes dash{
+  to{
+    stroke-dashoffset:-32;
+  }
+}
+
+.footer-left,
+.footer-right{
+  position:absolute;
+  bottom:40px;
+  font-size:13px;
+  color:#8B95A1;
+  letter-spacing:0.15em;
+  font-weight:600;
+}
+
+.footer-left{
+  left:120px;
+}
+
+.footer-right{
+  right:120px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="slide">
+
+  <div class="top-label">04 · HARDWARE ARCHITECTURE</div>
+
+  <div class="title">HW 시스템 구성도</div>
+
+  <div class="subtitle">
+    Arduino Mega 2560 기반 입력 · 처리 · 출력 3-Layer 아키텍처
+  </div>
+
+  <div class="architecture-box">
+
+    <svg class="lines" viewBox="0 0 1680 700">
+
+      <!-- LEFT -->
+      <line class="flow" x1="350" y1="211" x2="625" y2="250" stroke="#3182F6" stroke-width="3"/>
+      <line class="flow" x1="350" y1="317" x2="625" y2="305" stroke="#3182F6" stroke-width="3"/>
+      <line class="flow" x1="350" y1="423" x2="625" y2="360" stroke="#3182F6" stroke-width="3"/>
+      <line class="flow" x1="350" y1="529" x2="625" y2="415" stroke="#3182F6" stroke-width="3"/>
+
+      <!-- RIGHT -->
+      <line class="flow" x1="1055" y1="250" x2="1330" y2="211" stroke="#00B076" stroke-width="3"/>
+      <line class="flow" x1="1055" y1="305" x2="1330" y2="317" stroke="#00B076" stroke-width="3"/>
+      <line class="flow" x1="1055" y1="360" x2="1330" y2="423" stroke="#00B076" stroke-width="3"/>
+      <line class="flow" x1="1055" y1="415" x2="1330" y2="529" stroke="#00B076" stroke-width="3"/>
+
+    </svg>
+
+    <!-- INPUT -->
+    <div class="column">
+
+      <div class="section-label input-label">INPUT LAYER</div>
+
+      <div class="card blue-card">
+        <div class="icon-box blue-bg">N</div>
+        <div>
+          <div class="card-title">NFC RC522</div>
+          <div class="card-desc">UID 인증 입력</div>
+        </div>
+      </div>
+
+      <div class="card red-card">
+        <div class="icon-box red-bg">F</div>
+        <div>
+          <div class="card-title">Flame Sensor</div>
+          <div class="card-desc">화재 감지 신호</div>
+        </div>
+      </div>
+
+      <div class="card blue-card">
+        <div class="icon-box blue-bg">W</div>
+        <div>
+          <div class="card-title">Water Level</div>
+          <div class="card-desc">수위 감지 센서</div>
+        </div>
+      </div>
+
+      <div class="card purple-card">
+        <div class="icon-box purple-bg">J</div>
+        <div>
+          <div class="card-title">Joystick</div>
+          <div class="card-desc">수동 방향 제어</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CENTER -->
+    <div class="center-column">
+
+      <div class="section-label center-label">CONTROL UNIT</div>
+
+      <div class="controller">
+
+        <div class="controller-inner">
+          <div class="controller-label">CONTROL UNIT</div>
+          <div class="controller-title">Arduino Mega 2560</div>
+          <div class="controller-desc">
+            ATmega2560 · 54 Digital I/O · 16 Analog
+          </div>
+        </div>
+
+      </div>
+
+      <div class="power-box">
+
+        <div class="power-top">
+          <div class="icon-box yellow-bg" style="width:36px;height:36px;">
+            ⚡
+          </div>
+          <div class="power-label">EXTERNAL POWER</div>
+        </div>
+
+        <div class="power-desc">
+          펌프 전원 분리 · GND 공통화<br>
+          노이즈 절연 보호 회로 적용
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- OUTPUT -->
+    <div class="column" style="align-items:flex-end;">
+
+      <div class="section-label output-label">OUTPUT LAYER</div>
+
+      <div class="card yellow-card">
+        <div class="icon-box yellow-bg">⚡</div>
+        <div>
+          <div class="card-title">MOSFET + Pump</div>
+          <div class="card-desc">PWM 수압 제어</div>
+        </div>
+      </div>
+
+      <div class="card green-card">
+        <div class="icon-box green-bg">S</div>
+        <div>
+          <div class="card-title">Servo × 2</div>
+          <div class="card-desc">노즐 방향 제어</div>
+        </div>
+      </div>
+
+      <div class="card gray-card">
+        <div class="icon-box gray-bg">L</div>
+        <div>
+          <div class="card-title">LCD I2C</div>
+          <div class="card-desc">상태 메시지 표시</div>
+        </div>
+      </div>
+
+      <div class="card purple-card">
+        <div class="icon-box purple-bg">R</div>
+        <div>
+          <div class="card-title">RGB + Buzzer</div>
+          <div class="card-desc">시각·청각 피드백</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer-left">SMART FIRE GUARDIAN V2</div>
+  <div class="footer-right">05 / 13</div>
+
+</div>
+
+</body>
+</html>

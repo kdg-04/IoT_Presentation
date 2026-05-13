@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개발 일정</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: #fff;
+    color: #191f28;
+    font-family: "Pretendard", "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .slide-container {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #f9fafb;
+  }
+  .eyebrow {
+    position: absolute;
+    left: 120px;
+    top: 80px;
+    width: 500px;
+    height: 24px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    color: #3182f6;
+  }
+  .title {
+    position: absolute;
+    left: 120px;
+    top: 130px;
+    width: 1400px;
+    height: 80px;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -.03em;
+  }
+  .subtitle {
+    position: absolute;
+    left: 120px;
+    top: 220px;
+    width: 1400px;
+    height: 40px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #4e5968;
+    letter-spacing: -.01em;
+  }
+  .timeline {
+    position: absolute;
+    left: 120px;
+    top: 330px;
+    width: 1680px;
+    height: 450px;
+  }
+  .axis {
+    position: absolute;
+    left: 0;
+    top: 214px;
+    width: 1680px;
+    height: 6px;
+    border-radius: 3px;
+    background: #d6e6fb;
+  }
+  .phase {
+    position: absolute;
+    top: 0;
+    width: 300px;
+    height: 450px;
+  }
+  .phase:nth-child(2) { left: 0; }
+  .phase:nth-child(3) { left: 345px; }
+  .phase:nth-child(4) { left: 690px; }
+  .phase:nth-child(5) { left: 1035px; }
+  .phase:nth-child(6) { left: 1380px; }
+  .dot {
+    position: absolute;
+    left: 50%;
+    top: 192px;
+    width: 50px;
+    height: 50px;
+    border: 8px solid #f9fafb;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    background: #3182f6;
+    box-shadow: 0 8px 20px rgba(49, 130, 246, .22);
+    z-index: 2;
+  }
+  .card {
+    position: absolute;
+    left: 0;
+    width: 300px;
+    min-height: 150px;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .04), 0 8px 24px rgba(17, 24, 39, .04);
+    padding: 26px 28px;
+  }
+  .phase:nth-child(odd) .card { top: 0; }
+  .phase:nth-child(even) .card { bottom: 0; }
+  .week {
+    margin-bottom: 14px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .16em;
+    color: #3182f6;
+  }
+  .card-title {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+  }
+  .card-desc {
+    color: #4e5968;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .status-row {
+    position: absolute;
+    left: 120px;
+    top: 820px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 1680px;
+  }
+  .status {
+    height: 110px;
+    border-radius: 18px;
+    background: #fff;
+    border: 1px solid #e5e8eb;
+    padding: 24px 26px;
+  }
+  .status-label {
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .16em;
+    color: #8b95a1;
+  }
+  .status-value {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+  }
+  .footer-left,
+  .footer-right {
+    position: absolute;
+    top: 1010px;
+    height: 24px;
+    color: #8b95a1;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .14em;
+  }
+  .footer-left { left: 120px; width: 600px; }
+  .footer-right { left: 1700px; width: 100px; text-align: right; }
+</style>
+</head>
+<body>
+<div data-screen-label="09 Schedule" class="slide-container">
+  <div class="eyebrow">08 · SCHEDULE</div>
+  <div class="title">개발 일정 · 진행 계획</div>
+  <div class="subtitle">설계에서 시연까지 단계별 산출물을 기준으로 관리</div>
+
+  <div class="timeline">
+    <div class="axis"></div>
+
+    <div class="phase">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="week">WEEK 01</div>
+        <div class="card-title">요구사항 정의</div>
+        <div class="card-desc">기능 범위 확정<br>부품 선정 · 역할 분담</div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="week">WEEK 02</div>
+        <div class="card-title">회로 · 구조 설계</div>
+        <div class="card-desc">센서/구동부 배선<br>상태 머신 설계</div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="week">WEEK 03</div>
+        <div class="card-title">핵심 기능 구현</div>
+        <div class="card-desc">NFC 인증 · 센서 처리<br>펌프/서보 제어</div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="week">WEEK 04</div>
+        <div class="card-title">통합 테스트</div>
+        <div class="card-desc">시나리오 검증<br>예외 상황 보정</div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="week">WEEK 05</div>
+        <div class="card-title">발표 · 시연 준비</div>
+        <div class="card-desc">데모 흐름 확정<br>문서/슬라이드 정리</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="status-row">
+    <div class="status">
+      <div class="status-label">CURRENT</div>
+      <div class="status-value">통합 테스트 단계</div>
+    </div>
+    <div class="status">
+      <div class="status-label">FOCUS</div>
+      <div class="status-value">시연 안정성 확보</div>
+    </div>
+    <div class="status">
+      <div class="status-label">CHECK</div>
+      <div class="status-value">센서 오탐 · 수위 예외</div>
+    </div>
+    <div class="status">
+      <div class="status-label">OUTPUT</div>
+      <div class="status-value">최종 발표 자료</div>
+    </div>
+  </div>
+
+  <div class="footer-left">SMART FIRE GUARDIAN V2</div>
+  <div class="footer-right">09 / 13</div>
+</div>
+</body>
+</html>

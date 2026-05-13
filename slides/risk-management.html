@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Risk Management</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+  body{margin:0;padding:0;overflow:hidden;font-family:'Pretendard','SF Pro Display',-apple-system,sans-serif;background:#fff;color:#191F28}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  .fu-1{animation:fadeUp .7s .05s both}.fu-2{animation:fadeUp .7s .15s both}.fu-3{animation:fadeUp .7s .25s both}
+  .fu-4{animation:fadeUp .7s .35s both}.fu-5{animation:fadeUp .7s .45s both}.fu-6{animation:fadeUp .7s .55s both}
+  .fu-7{animation:fadeUp .7s .65s both}.fu-8{animation:fadeUp .7s .75s both}
+</style>
+</head>
+<body>
+<div data-screen-label="10 Risk" class="slide-container" style="position:relative;width:1920px;height:1080px;overflow:hidden;background:#F9FAFB">
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:120px;top:80px;width:500px;height:24px;font-size:14px;font-weight:600;letter-spacing:0.18em;color:#3182F6;z-index:10">09 · RISK MANAGEMENT</div>
+
+  <div data-object="true" data-object-type="textbox" class="fu-1" style="position:absolute;left:120px;top:130px;width:1400px;height:80px;font-size:64px;font-weight:800;letter-spacing:-0.03em;color:#191F28;line-height:1.1;z-index:10">예측 가능한 모든 리스크</div>
+  <div data-object="true" data-object-type="textbox" class="fu-2" style="position:absolute;left:120px;top:220px;width:1400px;height:40px;font-size:22px;font-weight:500;color:#4E5968;letter-spacing:-0.01em;z-index:10">전력 · 노이즈 · 인증 · 펌웨어 · 하드웨어 손상 — 5대 위험 요인 대응</div>
+
+  <!-- Table container -->
+  <div data-object="true" data-object-type="shape" class="fu-3" style="position:absolute;left:120px;top:300px;width:1680px;height:670px;border-radius:28px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04),0 8px 24px rgba(17,24,39,0.04);z-index:5"></div>
+
+  <!-- Column Headers -->
+  <div data-object="true" data-object-type="textbox" class="fu-3" style="position:absolute;left:160px;top:340px;width:80px;height:24px;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#8B95A1;z-index:10">NO.</div>
+  <div data-object="true" data-object-type="textbox" class="fu-3" style="position:absolute;left:240px;top:340px;width:380px;height:24px;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#8B95A1;z-index:10">RISK</div>
+  <div data-object="true" data-object-type="textbox" class="fu-3" style="position:absolute;left:660px;top:340px;width:480px;height:24px;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#8B95A1;z-index:10">CAUSE</div>
+  <div data-object="true" data-object-type="textbox" class="fu-3" style="position:absolute;left:1170px;top:340px;width:600px;height:24px;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#3182F6;z-index:10">COUNTERMEASURE</div>
+  <div data-object="true" data-object-type="shape" class="fu-3" style="position:absolute;left:160px;top:374px;width:1600px;height:1px;background:#E5E8EB;z-index:6"></div>
+
+  <!-- Row 1 -->
+  <div data-object="true" data-object-type="shape" class="fu-4" style="position:absolute;left:160px;top:394px;width:40px;height:40px;border-radius:10px;background:rgba(245,176,0,0.12);z-index:6"></div>
+  <div data-object="true" data-object-type="icon" class="fu-4" style="position:absolute;left:170px;top:404px;width:20px;height:20px;color:#F5B000;z-index:11">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+  </div>
+  <div data-object="true" data-object-type="textbox" class="fu-4" style="position:absolute;left:240px;top:400px;width:380px;height:30px;font-size:18px;font-weight:700;color:#191F28;letter-spacing:-0.01em;z-index:10">펌프 전력 부족</div>
+  <div data-object="true" data-object-type="textbox" class="fu-4" style="position:absolute;left:660px;top:402px;width:480px;height:30px;font-size:15px;font-weight:500;color:#4E5968;line-height:1.4;z-index:10">Arduino 전원으로 펌프 구동 시 전압 강하</div>
+  <div data-object="true" data-object-type="textbox" class="fu-4" style="position:absolute;left:1170px;top:402px;width:600px;height:30px;font-size:15px;font-weight:600;color:#191F28;line-height:1.4;z-index:10">외부 전원 분리 · GND 공통화 회로 적용</div>
+  <div data-object="true" data-object-type="shape" class="fu-4" style="position:absolute;left:160px;top:454px;width:1600px;height:1px;background:#F2F4F6;z-index:6"></div>
+
+  <!-- Row 2 -->
+  <div data-object="true" data-object-type="shape" class="fu-5" style="position:absolute;left:160px;top:474px;width:40px;height:40px;border-radius:10px;background:rgba(232,32,24,0.10);z-index:6"></div>
+  <div data-object="true" data-object-type="icon" class="fu-5" style="position:absolute;left:170px;top:484px;width:20px;height:20px;color:#E82018;z-index:11">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 12h-4l-3 9L9 3l-3 9H2"/></svg>
+  </div>
+  <div data-object="true" data-object-type="textbox" class="fu-5" style="position:absolute;left:240px;top:480px;width:380px;height:30px;font-size:18px;font-weight:700;color:#191F28;letter-spacing:-0.01em;z-index:10">펌프 노이즈 유입</div>
+  <div data-object="true" data-object-type="textbox" class="fu-5" style="position:absolute;left:660px;top:482px;width:480px;height:30px;font-size:15px;font-weight:500;color:#4E5968;line-height:1.4;z-index:10">DC 모터 역기전력 · 스위칭 노이즈</div>
+  <div data-object="true" data-object-type="textbox" class="fu-5" style="position:absolute;left:1170px;top:482px;width:600px;height:30px;font-size:15px;font-weight:600;color:#191F28;line-height:1.4;z-index:10">캐패시터 · 플라이백 다이오드 병렬 적용</div>
+  <div data-object="true" data-object-type="shape" class="fu-5" style="position:absolute;left:160px;top:534px;width:1600px;height:1px;background:#F2F4F6;z-index:6"></div>
+
+  <!-- Row 3 -->
+  <div data-object="true" data-object-type="shape" class="fu-6" style="position:absolute;left:160px;top:554px;width:40px;height:40px;border-radius:10px;background:rgba(49,130,246,0.10);z-index:6"></div>
+  <div data-object="true" data-object-type="icon" class="fu-6" style="position:absolute;left:170px;top:564px;width:20px;height:20px;color:#3182F6;z-index:11">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
+  </div>
+  <div data-object="true" data-object-type="textbox" class="fu-6" style="position:absolute;left:240px;top:560px;width:380px;height:30px;font-size:18px;font-weight:700;color:#191F28;letter-spacing:-0.01em;z-index:10">NFC 인증 실패</div>
+  <div data-object="true" data-object-type="textbox" class="fu-6" style="position:absolute;left:660px;top:562px;width:480px;height:30px;font-size:15px;font-weight:500;color:#4E5968;line-height:1.4;z-index:10">UID 미등록 카드 · 인식 거리 한계</div>
+  <div data-object="true" data-object-type="textbox" class="fu-6" style="position:absolute;left:1170px;top:562px;width:600px;height:30px;font-size:15px;font-weight:600;color:#191F28;line-height:1.4;z-index:10">UID 재등록 절차 · 예외 처리 · 경고 출력</div>
+  <div data-object="true" data-object-type="shape" class="fu-6" style="position:absolute;left:160px;top:614px;width:1600px;height:1px;background:#F2F4F6;z-index:6"></div>
+
+  <!-- Row 4 -->
+  <div data-object="true" data-object-type="shape" class="fu-7" style="position:absolute;left:160px;top:634px;width:40px;height:40px;border-radius:10px;background:rgba(155,89,182,0.12);z-index:6"></div>
+  <div data-object="true" data-object-type="icon" class="fu-7" style="position:absolute;left:170px;top:644px;width:20px;height:20px;color:#9B59B6;z-index:11">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+  </div>
+  <div data-object="true" data-object-type="textbox" class="fu-7" style="position:absolute;left:240px;top:640px;width:380px;height:30px;font-size:18px;font-weight:700;color:#191F28;letter-spacing:-0.01em;z-index:10">delay() 시스템 정지</div>
+  <div data-object="true" data-object-type="textbox" class="fu-7" style="position:absolute;left:660px;top:642px;width:480px;height:30px;font-size:15px;font-weight:500;color:#4E5968;line-height:1.4;z-index:10">delay() 사용 시 다중 센서 처리 지연</div>
+  <div data-object="true" data-object-type="textbox" class="fu-7" style="position:absolute;left:1170px;top:642px;width:600px;height:30px;font-size:15px;font-weight:600;color:#191F28;line-height:1.4;z-index:10">millis() 기반 비차단 구조로 전면 전환</div>
+  <div data-object="true" data-object-type="shape" class="fu-7" style="position:absolute;left:160px;top:694px;width:1600px;height:1px;background:#F2F4F6;z-index:6"></div>
+
+  <!-- Row 5 -->
+  <div data-object="true" data-object-type="shape" class="fu-8" style="position:absolute;left:160px;top:714px;width:40px;height:40px;border-radius:10px;background:rgba(0,176,118,0.10);z-index:6"></div>
+  <div data-object="true" data-object-type="icon" class="fu-8" style="position:absolute;left:170px;top:724px;width:20px;height:20px;color:#00B076;z-index:11">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+  </div>
+  <div data-object="true" data-object-type="textbox" class="fu-8" style="position:absolute;left:240px;top:720px;width:380px;height:30px;font-size:18px;font-weight:700;color:#191F28;letter-spacing:-0.01em;z-index:10">펌프 손상 위험</div>
+  <div data-object="true" data-object-type="textbox" class="fu-8" style="position:absolute;left:660px;top:722px;width:480px;height:30px;font-size:15px;font-weight:500;color:#4E5968;line-height:1.4;z-index:10">물 없이 작동 시 코일 과열 · 임펠러 손상</div>
+  <div data-object="true" data-object-type="textbox" class="fu-8" style="position:absolute;left:1170px;top:722px;width:600px;height:30px;font-size:15px;font-weight:600;color:#191F28;line-height:1.4;z-index:10">LOW_WATER 강제 진입 · PWM 0 차단</div>
+
+  <!-- Summary callout -->
+  <div data-object="true" data-object-type="shape" class="fu-8" style="position:absolute;left:160px;top:800px;width:1600px;height:140px;border-radius:18px;background:linear-gradient(135deg,#3182F6 0%,#1B64DA 100%);box-shadow:0 12px 32px rgba(49,130,246,0.18);z-index:5"></div>
+  <div data-object="true" data-object-type="shape" class="fu-8" style="position:absolute;left:200px;top:830px;width:80px;height:80px;border-radius:20px;background:rgba(255,255,255,0.18);z-index:6"></div>
+  <div data-object="true" data-object-type="icon" class="fu-8" style="position:absolute;left:222px;top:852px;width:36px;height:36px;color:#fff;z-index:11">
+    <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+  </div>
+  <div data-object="true" data-object-type="textbox" class="fu-8" style="position:absolute;left:310px;top:830px;width:1200px;height:32px;font-size:14px;font-weight:700;letter-spacing:0.18em;color:rgba(255,255,255,0.85);z-index:10">SAFETY-FIRST PHILOSOPHY</div>
+  <div data-object="true" data-object-type="textbox" class="fu-8" style="position:absolute;left:310px;top:862px;width:1430px;height:64px;font-size:24px;font-weight:700;color:#fff;line-height:1.35;letter-spacing:-0.01em;z-index:10">모든 위험은 “감지 → 차단 → 보호”의 3단계 자동 대응 구조로 사전 차단됩니다.</div>
+
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:120px;top:1010px;width:600px;height:24px;font-size:13px;font-weight:500;letter-spacing:0.14em;color:#8B95A1;z-index:10">SMART FIRE GUARDIAN V2</div>
+  <div data-object="true" data-object-type="textbox" style="position:absolute;left:1700px;top:1010px;width:100px;height:24px;font-size:13px;font-weight:600;letter-spacing:0.14em;color:#8B95A1;text-align:right;z-index:10">10 / 13</div>
+
+</div>
+</body>
+</html>
